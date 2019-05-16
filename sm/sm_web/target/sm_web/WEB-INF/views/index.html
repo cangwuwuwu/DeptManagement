@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>three frames</title>
+    <style>
+        iframe {
+            float: left;
+        }
+        .div-frame {
+            width: 100%;
+            float: left
+        }
+        .head {
+            height: 100px;
+        }
+        .head div {
+            float: right;padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="div-frame">
+    <div class="head">
+        <div>欢迎您,<span th:text="${userSession}">xxxxx</span>[<a th:href="@{/logout}">退出</a>]</div>
+    </div>
+    <iframe height="800px" width="19.5%" src="leftIndex.html">
+
+    </iframe>
+    <iframe name="main" height="800px" width="80%" src="/sm/getAll">
+
+    </iframe>
+</div>
+</body>
+</html>

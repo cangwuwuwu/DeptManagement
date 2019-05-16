@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>edit</title>
+</head>
+<body>
+<form th:action="${#request.getContextPath() + '/addInfo'}" method="post" name="editForm">
+    <div th:each="depart:${editDepartment}">
+        id:<input type="hidden" th:text="${depart.id} " th:value="${depart.id}" name="id">
+        name:<input type="text" name="editName"
+                    th:value="${depart.name}" th:placeholder="${depart.name}" required="required">
+        address:<input type="text" name="editAddress"
+                       th:value="${depart.address}" th:placeholder="${depart.address}" required="required">
+        <a href="javascript:editForm.submit();">修改</a>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>allUser</title>
+</head>
+<body>
+<h1>===================部门信息======================</h1>
+<!--/*@thymesVar id="department" type="com.cangwu.entity.Department"*/-->
+<table width="800px">
+    <tr>
+        <td>部门编号</td>
+        <td>部门名称</td>
+        <td>部门地址</td>
+        <td colspan="2">操作</td>
+    </tr>
+    <tr th:each="department : ${lists}">
+        <td th:text="${department.id}"></td>
+        <td th:text="${department.name}"></td>
+        <td th:text="${department.address}"></td>
+        <td><a th:href="@{'/edit?id='+${department.id}}">编辑</a></td>
+        <td><a onclick="return confirm('⚠警告！确定要删除吗？这将会删除所有该部门员工的信息！');"
+           th:href="@{'/delete?id='+${department.id}}">刪除</a></td>
+    </tr>
+</table>
+</body>
+</html>

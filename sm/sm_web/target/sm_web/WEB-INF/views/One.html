@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>getOne</title>
+</head>
+<body>
+<div th:each="one:${selectOne}">
+    <span th:text="${one.id}"></span>
+    <span th:text="${one.name}"></span>
+    <span th:text="${one.address}"></span>
+</div>
+</body>
+</html>

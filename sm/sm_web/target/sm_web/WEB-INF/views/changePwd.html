@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改密码</title>
+    <style>
+        .success {
+            color: forestgreen;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+<h2>========修改密码========</h2>
+<h3 th:class="${classInfo}" th:text="${changePwd}" onclick="flushPage()"></h3>
+<form th:action="${#request.getContextPath() + '/submitChangePwd'} " method="post">
+    <label>账户名：</label>
+    <span th:text="${userAccount}"></span><br>
+    <label for="oldPwd">旧密码：</label>
+    <input id="oldPwd" type="password" name="oldPwd" ><br>
+    <label for="oldPwd">新密码：</label>
+    <input id="newPwd" type="password" name="newPwd" ><br>
+    <input type="submit" value="修改密码" >
+</form>
+<script>
+    function flushPage() {
+        parent.location.href="/sm/logout";
+    }
+</script>
+</body>
+</html>

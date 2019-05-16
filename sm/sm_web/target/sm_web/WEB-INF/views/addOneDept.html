@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加部门</title>
+</head>
+<body>
+<h3>------------------------------添加部门------------------------------------</h3>
+<form th:action="${#request.getContextPath() + '/addInfo'}" method="post" name="addForm">
+    name:<input type="text" name="addDName">
+    address:<input type="text" name="addDAddress">
+    <a href="javascript:addForm.submit();">添加</a>
+</form>
+</body>
+</html>

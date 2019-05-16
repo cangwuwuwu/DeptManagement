@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${Staff.account}+'-详情'">员工信息</title>
+</head>
+<body>
+    <div>
+        <h2 th:text="${Staff.account}"></h2>
+        编号：<span th:text="${Staff.id}"></span><br>
+        账户：<span th:text="${Staff.account}"></span><br>
+        所属部门：<span th:each="tlist:${list}" th:if="${tlist.id eq Staff.did}"
+                   th:text="${tlist.name}"></span><br>
+        名字：<span th:text="${Staff.name}"></span><br>
+        性别：<span th:text="${Staff.sex}"></span><br>
+        身份证号：<span th:text="${Staff.idNumber}"></span><br>
+        出生日期：<span th:text="${#dates.format(Staff.bornDate,'yyyy-MM-dd')}"></span><br>
+        入职时间：<span th:text="${#dates.format(Staff.workTime,'yyyy-MM-dd')}"></span><br>
+        状态：<span th:text="${Staff.status}"></span><br>
+        简介：<span th:text="${Staff.info}"></span><br>
+        <input type="button" name="Submit" value="返回" onclick="javascript:history.go(-1)" />
+    </div>
+</body>
+</html>

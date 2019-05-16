@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>操作日志</title>
+</head>
+<body>
+<h1>======================操作日志=======================</h1>
+<table width="800px">
+    <tr>
+        <td>时间</td>
+        <td>账户</td>
+        <td>模块</td>
+        <td>操作</td>
+        <td>结果</td>
+    </tr>
+    <tr th:each="logs:${operateLogs}">
+        <td th:text="${#dates.format(logs.oprTime,'yyyy-MM-dd')}"></td>
+        <td th:text="${logs.operator}"></td>
+        <td th:text="${logs.moudle}"></td>
+        <td th:text="${logs.operation}"></td>
+        <td th:text="${logs.result}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查询部门</title>
+</head>
+<body>
+<h3>------------------------------查询部门------------------------------------</h3>
+<form th:action="${#request.getContextPath() + '/selectId'}" method="post">
+    请输入你要查询的部门id：<input name="inputId" type="number"/>
+    <input type="submit" value="查询">
+</form>
+</body>
+</html>

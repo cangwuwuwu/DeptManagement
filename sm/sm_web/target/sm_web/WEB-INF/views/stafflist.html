@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>staff list</title>
+    <style>
+        ul {
+            margin: 0;
+        }
+        ul li {
+            list-style: none;
+        }
+        .staffInfo {
+            width: 260px;
+            float: left;
+        }
+        .staffEdit {
+            float: left;
+            border-bottom: 1px solid gray;
+            margin-top: 8px;
+            padding-bottom: 8px;
+        }
+        .allStaff {
+            margin: 0 auto;
+            width: 521px;
+        }
+    </style>
+</head>
+<body>
+<div class="allStaff">
+    <h3>--------------------------------员工信息--------------------------------------</h3>
+    <div class="staffEdit"  th:each="staff:${stafflists}">
+        <div class="staffInfo">
+            名字：<span th:text="${staff.name}"></span><br>
+            所属部门：
+            <span th:text="${staff.department.name}"></span><br>
+            性别：<span th:text="${staff.sex}"></span><br>
+            状态：<span th:text="${staff.status}"></span><br>
+        </div>
+        <div class="staffInfo">
+            <ul>
+                <li><a th:href="@{'/detail?id=' + ${staff.id}}">详情</a></li>
+                <li><a th:href="@{'/editStaff?id=' + ${staff.id}}">编辑</a></li>
+                <li><a onclick="return confirm('确定要炒了Ta吗？');"
+                       th:href="@{'/leaveWork?id=' + ${staff.id}}">离职</a></li>
+                <li>
+                    <span sec:authorize-url="">
+                        <a onclick="return confirm('确定要删除吗？');"
+                           th:href="@{'/deleteStaff?id=' + ${staff.id}}">刪除</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

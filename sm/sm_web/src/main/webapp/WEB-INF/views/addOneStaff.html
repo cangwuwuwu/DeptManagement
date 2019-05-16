@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加员工</title>
+</head>
+<body>
+<div class="allStaff">
+    <h3>--------------------------------添加员工--------------------------------------</h3>
+    <form th:action="${#request.getContextPath() + '/addStaff'}" method="post" name="addForm">
+        Account:<input type="text" name="Account"><br>
+        Name:<input type="text" name="Name"><br>
+        IdNumber:<input type="text" name="IdNumber"><br>
+        Sex:<input type="radio" name="Sex" value="男">男
+        <input type="radio" name="Sex" value="女">女<br>
+        Department:<select name="Did">
+        <option>请选择</option>
+        <option th:each="dlist:${dlist}" th:value="${dlist.id}" th:text="${dlist.name}"></option>
+    </select><br>
+        BornDate:<input type="text" name="Born"><br>
+        Info:<input type="text" name="Info"><br>
+        <a href="javascript:addForm.submit();">添加</a>
+    </form>
+</div>
+</body>
+</html>

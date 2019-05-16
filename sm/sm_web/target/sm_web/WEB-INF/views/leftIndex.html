@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>部门管理</h2>
+<a target="main" th:href="${#request.getContextPath() + '/getAll'}">部门信息</a><br>
+<a target="main" th:href="${#request.getContextPath() + '/addADept'}">添加部门</a><br>
+<a target="main" th:href="${#request.getContextPath() + '/getADept'}">查询部门</a><br>
+<h2>员工管理</h2>
+<a target="main" th:href="${#request.getContextPath() + '/addAStaff'}">添加员工</a><br>
+<a target="main" th:href="${#request.getContextPath() + '/getList'}">员工信息</a><br>
+<h2>个人中心</h2>
+<a target="main" th:href="${#request.getContextPath() + '/toPersion'}">个人信息</a><br>
+<a target="main" th:href="${#request.getContextPath() + '/changePwd'}">修改密码</a><br>
+</body>
+<h2>日志信息</h2>
+<a target="main" th:href="${#request.getContextPath() + '/toOperateLog'}">操作日志</a><br>
+<a target="main" th:href="${#request.getContextPath() + '/toSystemLog'}">系统日志</a><br>
+</html>
